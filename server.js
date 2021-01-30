@@ -1,3 +1,5 @@
+// testing branch protected
+
 const express = require("express");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
@@ -10,6 +12,9 @@ const TrainsController = require("./controllers/trainsController");
 const UserController = require("./controllers/userController")
 
 const PORT = process.env.PORT || 8080;
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
