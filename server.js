@@ -7,6 +7,7 @@ const {
 const app = express();
 const db = require("./models");
 const TrainsController = require("./controllers/trainsController");
+const UserController = require("./controllers/userController")
 
 const PORT = process.env.PORT || 8080;
 
@@ -33,6 +34,7 @@ app.get("/api/config", (req, res) => {
 });
 
 app.use(TrainsController);
+app.use(UserController);
 
 db.sequelize
   .sync()

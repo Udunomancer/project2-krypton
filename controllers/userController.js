@@ -3,7 +3,7 @@ const db = require("../models");
 
 const userRouter = express.Router();
 
-router.get("/signup", (req, res) => {
+userRouter.get("/signup", (req, res) => {
   res.render("sign-up");
 });
 
