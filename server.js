@@ -11,8 +11,7 @@ const {
 // === Create new Express server ===
 const app = express();
 const db = require("./models");
-const TrainsController = require("./controllers/trainsController");
-const UserController = require("./controllers/userController")
+const controller = require("./controllers/controller");
 
 const PORT = process.env.PORT || 8080;
 
@@ -42,8 +41,7 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-app.use(TrainsController);
-app.use(UserController);
+app.use(controller);
 
 db.sequelize
   .sync()
