@@ -23,7 +23,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("sign-up");
 });
 
 app.get("/api/config", (req, res) => {
