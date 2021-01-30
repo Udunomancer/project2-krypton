@@ -21,8 +21,8 @@ router.get("/trains", (req, res) => {
 /**
  * Route to render the new train form.
  */
-router.get("/trains/new", (req, res) => {
-  res.render("new-train");
+router.get("/games/new", (req, res) => {
+  res.render("new-game");
 });
 
 /**
