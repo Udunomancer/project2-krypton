@@ -1,11 +1,14 @@
 // testing branch protected
-
+// === Express and Handlebars Dependencies ===
+const path = require('path');
 const express = require("express");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
+
+// === Create new Express server ===
 const app = express();
 const db = require("./models");
 const TrainsController = require("./controllers/trainsController");
@@ -18,6 +21,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// --- Middleware: Handlebars ---
 app.engine(
   "handlebars",
   exphbs({
