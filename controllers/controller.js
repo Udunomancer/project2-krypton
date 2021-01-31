@@ -38,7 +38,7 @@ router.post("/api/games/new", (req, res) => {
   db.Game.create({
     gameTitle: req.body.gameTitle,
     playerAge: req.body.playerAge,
-    published: "1982", // TODO: update form with published year reqeust
+    published: req.body.published,
     minPlayers: req.body.minPlayers,
     maxPlayers: req.body.maxPlayers,
     minPlayTime: req.body.minPlayTime,
