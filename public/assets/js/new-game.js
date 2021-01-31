@@ -4,5 +4,9 @@ $(document).ready(function () {
 
 $(".submitButton").on("click", function (e) {
     e.preventDefault();
-    alert("submitted");
+    $.ajax({
+        type: "POST",
+        url: "/api/games/",
+        data: "fake_data",
+    })
 })

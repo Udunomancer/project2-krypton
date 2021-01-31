@@ -12,15 +12,20 @@ router.get("/", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("sign-up");
 });
+
 // View login form
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
 // View new game form
 router.get("/games/new", (req, res) => {
   res.render("new-game");
 });
+
+// Add new game to database
+router.post("/api/games", (req, res) => {
+  console.log("controller file; line 28");
+})
 
 module.exports = router;
