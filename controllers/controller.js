@@ -3,6 +3,7 @@ const db = require("../models");
 
 const router = express.Router();
 
+// === HTML Routes ===
 // Root Route
 router.get("/", (req, res) => {
   res.render("index");
@@ -22,5 +23,7 @@ router.get("/login", (req, res) => {
 router.get("/games/new", (req, res) => {
   res.render("new-game");
 });
+
+// === API Routes ===
 
 module.exports = router;
