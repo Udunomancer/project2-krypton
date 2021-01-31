@@ -1,6 +1,41 @@
-/* Classes that set background color */
-.bkg-lt-blue { background-color: #8ECAE6; }
-.bkg-blue { background-color: #219EBC; }
-.bkg-dk-blue { background-color: #023047; }
-.bkg-ylw { background-color: #FFB703; }
-.bkg-org { background-color: #FB8500; }
+/* Update to materialize default colors */
+.blue { background-color: #3f6d88 !important}
+.blue.lighten-5 { background-color: #8ecae6 !important }
+.blue.lighten-4 { background-color: #7ab2ce !important}
+.blue.lighten-3 { background-color: #70a6c2 !important }
+.blue.lighten-2 { background-color: #5c8faa !important }
+.blue.lighten-1 { background-color: #52839f !important }
+.blue.darken-1 { background-color: #36637d !important }
+.blue.darken-2 { background-color: #234e67 !important }
+.blue.darken-3 { background-color: #19435c !important }
+.blue.darken-4 { background-color: #023047!important }
+.blue-text { color: #3f6d88 !important}
+.blue-text.text-lighten-5 { color: #8ecae6 !important }
+.blue-text.text-lighten-4 { color: #7ab2ce !important}
+.blue-text.text-lighten-3 { color: #70a6c2 !important }
+.blue-text.text-lighten-2 { color: #5c8faa !important }
+.blue-text.text-lighten-1 { color: #52839f !important }
+.blue-text.text-darken-1 { color: #36637d !important }
+.blue-text.text-darken-2 { color: #234e67 !important }
+.blue-text.text-darken-3 { color: #19435c !important }
+.blue-text.text-darken-4 { color: #023047!important }
+.orange { background-color: #fe9b00 !important }
+.orange.lighten-5 { background-color: #ffb703 !important }
+.orange.lighten-4 { background-color: #ffb000 !important }
+.orange.lighten-3 { background-color: #ffad00 !important }
+.orange.lighten-2 { background-color: #fea500 !important }
+.orange.lighten-1 { background-color: #fea200 !important }
+.orange.darken-1 { background-color: #fd9700 !important }
+.orange.darken-2 { background-color: #fd9000 !important }
+.orange.darken-3 { background-color: #fc8c00 !important }
+.orange.darken-4 { background-color: #fb8500 !important }
+.orange-text { color: #fe9b00 !important }
+.orange-text.text-lighten-5 { color: #ffb703 !important }
+.orange-text.text-lighten-4 { color: #ffb000 !important }
+.orange-text.text-lighten-3 { color: #ffad00 !important }
+.orange-text.text-lighten-2 { color: #fea500 !important }
+.orange-text.text-lighten-1 { color: #fea200 !important }
+.orange-text.text-darken-1 { color: #fd9700 !important }
+.orange-text.text-darken-2 { color: #fd9000 !important }
+.orange-text.text-darken-3 { color: #fc8c00 !important }
+.orange-text.text-darken-4 { color: #fb8500 !important }

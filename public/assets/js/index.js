@@ -7,9 +7,13 @@ $(document).ready(function() {
     // const searchSubmit = $("#search-submit")
 
     function searchGames(event) {
-
         event.preventDefault();
-        console.log("Submit");
+
+        const searchInput = {
+            value: searchTerm.val().trim()
+        };
+
+        console.log(searchInput);
     }
 
     searchForm.on("submit", searchGames);    
