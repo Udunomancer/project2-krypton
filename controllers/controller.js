@@ -25,7 +25,7 @@ router.get("/games/new", (req, res) => {
 
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
-  db.Train.findAll()
+  db.Game.findAll()
     .then((allGames) => {
       res.render("all-games", { games: allGames });
     })
