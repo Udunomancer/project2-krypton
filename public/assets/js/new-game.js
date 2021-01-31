@@ -4,5 +4,22 @@ $(document).ready(function () {
 
 $(".submitButton").on("click", function (e) {
     e.preventDefault();
-    alert("submitted");
+
+    $.ajax({
+        type: "POST",
+        url: "/api/games/new",
+        data: {
+            gameTitle: $("#gameTitle").val(),
+            published: $("#published").val(),
+            gameOwner: "TBD",
+            playerAge: $("#playerAge").val(),
+            minPlayers: $("#minPlayers").val(),
+            maxPlayers: $("#maxPlayers").val(),
+            minPlayTime: $("#minPlayTime").val(),
+            maxPlayTime: $("#maxPlayTime").val(),
+            gameDescription: $("#gameDescription").val(),
+        }
+    }).then((response) => {
+        console.log(response);
+    })
 })
