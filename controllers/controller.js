@@ -19,6 +19,24 @@ router.get("/login", (req, res) => {
 });
 
 
+
+
+router.post("/api/signup", function(req, res) {
+  db.User.create({
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(function() {
+      res.redirect(307, "/api/login");
+      console.log(user);
+    })
+    .catch(function(err) {
+      res.status(401).json(err);
+    });
+});
+
+
 // View new game form
 router.get("/games/new", (req, res) => {
   res.render("new-game");
@@ -36,6 +54,7 @@ router.get("/games", (req, res) => {
       res.status(500).end();
     });
 });
+
 
 
 module.exports = router;
