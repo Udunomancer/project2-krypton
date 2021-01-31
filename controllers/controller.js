@@ -32,7 +32,6 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-
 // View new game form
 router.get("/games/new", (req, res) => {
   res.render("new-game");
