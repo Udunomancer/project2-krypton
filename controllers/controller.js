@@ -27,9 +27,7 @@ router.get("/games/new", (req, res) => {
 // Add new game to database
 router.post("/api/games", (req, res) => {
   console.log(req.body);
-  db.Game.create(({
-    gameTitle: req
-  })
+  db.Game.create((req.body)
     .then((createdGame) => {
       res.json(createdGame);
     })
