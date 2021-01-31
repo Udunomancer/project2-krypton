@@ -3,6 +3,7 @@ const db = require("../models");
 
 const router = express.Router();
 
+// === HTML Routes ===
 // Root Route
 router.get("/", (req, res) => {
   res.render("index");
@@ -25,7 +26,18 @@ router.get("/games/new", (req, res) => {
 
 // Add new game to database
 router.post("/api/games", (req, res) => {
-  console.log("controller file; line 28");
+  console.log(req.body);
+  db.Game.create(({
+    gameTitle: req
+  })
+    .then((createdGame) => {
+      res.json(createdGame);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).end();
+    }))
 })
+// === API Routes ===
 
 module.exports = router;
