@@ -4,15 +4,20 @@ $(document).ready(function () {
 
 $(".submitButton").on("click", function (e) {
     e.preventDefault();
-    // const newGame = {
-    //     gameTitle: $("#gameTitle"),
-    //     gameOwner: "TBD",
-    //     minPlayers: $("#minPlayers")
-    // }
 
     $.ajax({
         type: "POST",
-        url: "/api/games/",
-        data: "newGame"
+        url: "/api/games/new",
+        data: {
+            gameTitle: $("#gameTitle").val(),
+            gameOwner: "TBD",
+            minPlayers: $("#minPlayers").val(),
+            maxPlayers: $("#maxPlayers").val(),
+            minPlayTime: $("#minPlayTime").val(),
+            maxPlayTime: $("#maxPlayTime").val(),
+            gameDescription: $("#gameDescription").val(),
+        }
+    }).then((response) => {
+        console.log(response);
     })
 })
