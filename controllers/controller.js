@@ -18,18 +18,14 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
-
-
 router.post("/api/signup", function(req, res) {
   db.User.create({
-    userName: req.body.userName,
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password
   })
     .then(function() {
-      res.redirect(307, "/api/login");
-      console.log(user);
+     res.status(200).end();
     })
     .catch(function(err) {
       res.status(401).json(err);
