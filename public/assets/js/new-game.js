@@ -10,6 +10,7 @@ $(".submitButton").on("click", function (e) {
         url: "/api/games/new",
         data: {
             gameTitle: $("#gameTitle").val(),
+            published: $("#published").val(),
             gameOwner: "TBD",
             playerAge: $("#playerAge").val(),
             minPlayers: $("#minPlayers").val(),
