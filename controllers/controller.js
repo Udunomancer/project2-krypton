@@ -23,4 +23,17 @@ router.get("/games/new", (req, res) => {
   res.render("new-game");
 });
 
+// Route to render all trains to a page
+router.get("/games", (req, res) => {
+  db.Train.findAll()
+    .then((allGames) => {
+      res.render("all-games", { games: allGames });
+    })
+    .catch((err) => {
+      console.log(err);
+      //TODO: render 404 page if we're unable to return trains
+      res.status(500).end();
+    });
+});
+
 module.exports = router;
