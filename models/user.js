@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models){
-    User.hasMany(models.Game, {
+    User.hasMany(models.GameUnit, {
       onDelete: "cascade"
     });
   };

@@ -3,6 +3,7 @@ const db = require("../models");
 
 const router = express.Router();
 
+// === HTML Routes ===
 // Root Route
 router.get("/", (req, res) => {
   res.render("index");
@@ -35,5 +36,6 @@ router.get("/games", (req, res) => {
       res.status(500).end();
     });
 });
+
 
 module.exports = router;
