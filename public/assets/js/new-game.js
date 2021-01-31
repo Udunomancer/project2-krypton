@@ -11,6 +11,7 @@ $(".submitButton").on("click", function (e) {
         data: {
             gameTitle: $("#gameTitle").val(),
             gameOwner: "TBD",
+            playerAge: $("#playerAge").val(),
             minPlayers: $("#minPlayers").val(),
             maxPlayers: $("#maxPlayers").val(),
             minPlayTime: $("#minPlayTime").val(),

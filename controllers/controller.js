@@ -27,14 +27,29 @@ router.get("/games/new", (req, res) => {
 // Add new game to database
 router.post("/api/games/new", (req, res) => {
   console.log(req.body);
-  db.Game.create((req.body)
-    .then((createdGame) => {
-      res.json(createdGame);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).end();
-    }))
+  // db.Game.create((req.body)
+  //   .then((createdGame) => {
+  //     res.json(createdGame);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).end();
+  //   }))
+  db.Game.create({
+    gameTitle: req.body.gameTitle,
+    playerAge: req.body.playerAge,
+    published: "1982", // TODO: update form with published year reqeust
+    minPlayers: req.body.minPlayers,
+    maxPlayers: req.body.maxPlayers,
+    minPlayTime: req.body.minPlayTime,
+    maxPlayTime: req.body.maxPlayTime,
+    gameDescription: req.body.gameDescription
+  }, {
+    fields: [
+      "gameTitle", "playerAge", "published", "minPlayers", "maxPlayers",
+      "minPlayTime", "maxPlayTime", "gameDescription"
+    ]
+  })
 })
 // === API Routes ===
 // Route to render all trains to a page
