@@ -91,6 +91,12 @@ router.get("/games", (req, res) => {
     });
 });
 
+// router.get("/api/games/:title", (req, res) => {
+//   db.Game.findAll(
+//     where: { gameTitle }
+//   )
+// })
+
 
 
 module.exports = router;

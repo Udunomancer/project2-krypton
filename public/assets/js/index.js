@@ -11,7 +11,7 @@ $(document).ready(function() {
 
         const param = encodeURI(searchTerm.val().trim());
         
-        window.location.replace("/search/" + param);
+        window.location.replace("/search?title=" + param);
     }
 
     searchForm.on("submit", searchGames);    
