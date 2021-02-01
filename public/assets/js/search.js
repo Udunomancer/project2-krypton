@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: "/api/games/" + searchTerm
+        url: "/api/game-description/" + searchTerm
     }).then((response) => {
         console.log(response);
     })

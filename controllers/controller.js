@@ -91,6 +91,7 @@ router.get("/games", (req, res) => {
     });
 });
 
+// Route to return all games that match title search term
 router.get("/api/game-description/:title", (req, res) => {
   db.Game.findAll()
     .then((allGames) => {
@@ -101,6 +102,7 @@ router.get("/api/game-description/:title", (req, res) => {
       res.status(500).end();
     })
 })
+
 
 
 

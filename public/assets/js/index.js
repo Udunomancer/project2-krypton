@@ -11,7 +11,11 @@ $(document).ready(function() {
 
         const param = encodeURI(searchTerm.val().trim());
         
-        window.location.replace("/search?title=" + param);
+        if (param) {
+            window.location.replace("/search?title=" + param);
+        }
+        
+        window.location.replace("/search");
     }
 
     searchForm.on("submit", searchGames);    
