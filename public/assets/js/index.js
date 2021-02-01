@@ -9,13 +9,14 @@ $(document).ready(function() {
     function searchGames(event) {
         event.preventDefault();
 
+        let URL = "/search";
         const param = encodeURI(searchTerm.val().trim());
-        
+
         if (param) {
-            window.location.replace("/search?title=" + param);
+            URL = URL + "?title=" + param;
         }
         
-        window.location.replace("/search");
+        window.location.href = URL;
     }
 
     searchForm.on("submit", searchGames);    
