@@ -19,16 +19,16 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.post("/api/signup", function(req, res) {
+router.post("/api/signup", function (req, res) {
   db.User.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password
   })
-    .then(function() {
-     res.status(200).end();
+    .then(function () {
+      res.status(200).end();
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.status(401).json(err);
     });
 });
@@ -40,14 +40,7 @@ router.get("/games/new", (req, res) => {
 // Add new game to database
 router.post("/api/games/new", (req, res) => {
   console.log(req.body);
-  // db.Game.create((req.body)
-  //   .then((createdGame) => {
-  //     res.json(createdGame);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(500).end();
-  //   }))
+
   db.Game.create({
     gameTitle: req.body.gameTitle,
     playerAge: req.body.playerAge,
@@ -63,7 +56,8 @@ router.post("/api/games/new", (req, res) => {
       "minPlayTime", "maxPlayTime", "gameDescription"
     ]
   })
-})
+});
+
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
@@ -78,6 +72,11 @@ router.get("/games", (req, res) => {
     });
 });
 
-
+router.get("/api/users", (req, res) => {
+  db.User.findAll()
+    .then((allUsers) => {
+      res.json(allUsers);
+    })
+})
 
 module.exports = router;
