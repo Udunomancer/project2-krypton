@@ -15,6 +15,7 @@ $(document).ready(function () {
   function newSearch(event) {
       event.preventDefault();
       resultsEl.empty();
+      searchGameDescriptions();
   }
 
   function searchGameDescriptions() {
