@@ -11,6 +11,12 @@ $(document).ready(function () {
   let searchTerm = urlParams.get("title");
   
   // === Function Definitions ===
+
+  function newSearch(event) {
+      event.preventDefault();
+      resultsEl.empty();
+  }
+
   function searchGameDescriptions() {
     $.ajax({
       type: "GET",
@@ -51,5 +57,5 @@ $(document).ready(function () {
   searchGameDescriptions();
 
   // === Event Listeners ===
-//   searchForm.on("submit")
+  searchForm.on("submit", newSearch);
 });
