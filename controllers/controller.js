@@ -25,7 +25,7 @@ router.get("/search", (req, res) => {
 });
 
 // --- View Search Results Page with Search Term ---
-router.get("/search/:title", (req, res) => {
+router.get("/search?title=:title", (req, res) => {
   res.render("search");
 });
 
