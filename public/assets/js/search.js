@@ -1,13 +1,16 @@
 $(document).ready(function () {
+  // === DOM Variables ===
   // Reference to the container
   const resultsEl = $("#results-contain");
+  // Reference to the search form
+  const searchForm = $(".search-games");
+  // === JS Variables ===
   // Getting Search Term from the URL
   const pageURL = window.location.search;
   const urlParams = new URLSearchParams(pageURL);
   let searchTerm = urlParams.get("title");
-
-  searchGameDescriptions();
-
+  
+  // === Function Definitions ===
   function searchGameDescriptions() {
     $.ajax({
       type: "GET",
@@ -43,4 +46,10 @@ $(document).ready(function () {
     resultCard.append(resultContent);
     resultsEl.append(resultCard);
   }
+
+  // === Function Calls ===
+  searchGameDescriptions();
+
+  // === Event Listeners ===
+//   searchForm.on("submit")
 });
