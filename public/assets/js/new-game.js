@@ -14,12 +14,12 @@ $(".submitButton").on("click", function (e) {
 
     $.ajax({
         type: "POST",
-        url: "/api/games/new",
+        url: "/api/game-description/new",
         data: {
             gameTitle: $("#gameTitle").val(),
-            published: $("#published").val(),
-            gameOwner: "TBD",
             playerAge: $("#playerAge").val(),
+            published: $("#published").val(),
+            // gameOwner: $("#ownerDropdown").val(),
             minPlayers: $("#minPlayers").val(),
             maxPlayers: $("#maxPlayers").val(),
             minPlayTime: $("#minPlayTime").val(),

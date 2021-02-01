@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const db = require("../models");
 
@@ -50,8 +51,8 @@ router.post("/api/game-description/new", (req, res) => {
 
   db.GameDescription.create({
     gameTitle: req.body.gameTitle,
-    playerAge: req.body.playerAge,
     published: req.body.published,
+    playerAge: req.body.playerAge,
     minPlayers: req.body.minPlayers,
     maxPlayers: req.body.maxPlayers,
     minPlayTime: req.body.minPlayTime,
@@ -59,7 +60,7 @@ router.post("/api/game-description/new", (req, res) => {
     gameDescription: req.body.gameDescription
   }, {
     fields: [
-      "gameTitle", "playerAge", "published", "minPlayers", "maxPlayers",
+      "gameTitle", "published", "playerAge", "published", "minPlayers", "maxPlayers",
       "minPlayTime", "maxPlayTime", "gameDescription"
     ]
   })
