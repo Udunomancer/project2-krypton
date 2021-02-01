@@ -1,5 +1,19 @@
 $(document).ready(function () {
     $('select').formSelect();
+
+    $.ajax({
+        type: "GET",
+        url: "/api/users/"
+    }).then((response) => {
+        let userList = [];
+        for (let i = 0; i < response.length; i++) {
+            userList[i] = {
+                displayName: response[i].name,
+                userId: response[i].id
+            }
+        }
+        console.log(userList);
+    })
 });
 
 $(".submitButton").on("click", function (e) {
