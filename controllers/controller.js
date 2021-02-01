@@ -91,11 +91,16 @@ router.get("/games", (req, res) => {
     });
 });
 
-// router.get("/api/games/:title", (req, res) => {
-//   db.Game.findAll(
-//     where: { gameTitle }
-//   )
-// })
+router.get("/api/game-description/:title", (req, res) => {
+  db.Game.findAll()
+    .then((allGames) => {
+      res.json(allGames);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).end();
+    })
+})
 
 
 

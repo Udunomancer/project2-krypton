@@ -6,6 +6,10 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(pageURL);
     let searchTerm = urlParams.get('title');
 
-    console.log(searchTerm);
-    
+    $.ajax({
+        type: "GET",
+        url: "/api/games/" + searchTerm
+    }).then((response) => {
+        console.log(response);
+    })
 })
