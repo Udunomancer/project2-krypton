@@ -9,9 +9,9 @@ $(document).ready(function() {
     function searchGames(event) {
         event.preventDefault();
 
-        console.log(encodeURI(searchTerm.val().trim()));
+        const param = encodeURI(searchTerm.val().trim());
         
-        
+        window.location.replace("/search/" + param);
     }
 
     searchForm.on("submit", searchGames);    
