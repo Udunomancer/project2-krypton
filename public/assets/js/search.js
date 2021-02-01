@@ -6,12 +6,14 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(pageURL);
     let searchTerm = urlParams.get('title');
 
-    $.ajax({
-        type: "GET",
-        url: "/api/game-description/" + searchTerm
-    }).then((response) => {
-        console.log(response);
-    })
+    searchGameDescriptions();
 
-    
+    function searchGameDescriptions() {
+        $.ajax({
+            type: "GET",
+            url: "/api/game-description/" + searchTerm
+        }).then((response) => {
+            console.log(response);
+        })
+    }
 })
