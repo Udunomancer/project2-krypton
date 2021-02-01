@@ -4,22 +4,24 @@ const db = require("../models");
 const router = express.Router();
 
 // === HTML Routes ===
-// Root Route
+// Route that will return and display home page (index)
 router.get("/", (req, res) => {
   res.render("index");
 })
 
-// View sign up form
+// Route that will return and display new user form
 router.get("/signup", (req, res) => {
   res.render("sign-up");
 });
 
-// View login form
+// Route that will return and display the login page (not used at this time)
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.post("/api/signup", function (req, res) {
+// Route to create a new user
+// User entered details from /signup sent to database
+router.post("/api/signup", function(req, res) {
   db.User.create({
     name: req.body.name,
     email: req.body.email,
@@ -32,16 +34,24 @@ router.post("/api/signup", function (req, res) {
       res.status(401).json(err);
     });
 });
-// View new game form
-router.get("/games/new", (req, res) => {
+
+// Route that will return and display the form to add a new game description
+router.get("/game-description/new", (req, res) => {
   res.render("new-game");
 });
 
-// Add new game to database
-router.post("/api/games/new", (req, res) => {
+// Add new game description to the GameDescription table
+router.post("/api/game-description/new", (req, res) => {
   console.log(req.body);
-
-  db.Game.create({
+  // db.Game.create((req.body)
+  //   .then((createdGame) => {
+  //     res.json(createdGame);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).end();
+  //   }))
+  db.GameDescription.create({
     gameTitle: req.body.gameTitle,
     playerAge: req.body.playerAge,
     published: req.body.published,
@@ -61,7 +71,7 @@ router.post("/api/games/new", (req, res) => {
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
-  db.Game.findAll()
+  db.GameUnit.findAll()
     .then((allGames) => {
       res.render("all-games", { games: allGames });
     })

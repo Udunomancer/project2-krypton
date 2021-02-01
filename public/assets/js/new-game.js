@@ -5,16 +5,9 @@ $(document).ready(function () {
         type: "GET",
         url: "/api/users/"
     }).then((response) => {
-        let userList = [];
-        for (let i = 0; i < response.length; i++) {
-            userList[i] = {
-                displayName: response[i].name,
-                userId: response[i].id
-            }
-        }
-        console.log(userList);
+        console.log(response);
     })
-});
+})
 
 $(".submitButton").on("click", function (e) {
     e.preventDefault();
