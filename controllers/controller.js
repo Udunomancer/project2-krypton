@@ -37,7 +37,11 @@ router.post("/api/signup", function (req, res) {
 
 // Route that will return and display the form to add a new game description
 router.get("/game-description/new", (req, res) => {
-  res.render("new-game");
+  db.User.findAll()
+    .then((allUsers) => {
+      const hbsObject = { users: allUsers };
+      res.render("new-game", hbsObject);
+    });
 });
 
 // Add new game description to the GameDescription table
@@ -74,12 +78,5 @@ router.get("/games", (req, res) => {
       res.status(500).end();
     });
 });
-
-router.get("/api/users", (req, res) => {
-  db.User.findAll()
-    .then((allUsers) => {
-      res.json(allUsers);
-    })
-})
 
 module.exports = router;
