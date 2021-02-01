@@ -44,7 +44,7 @@ app.get("/api/config", (req, res) => {
 app.use(controller);
 
 db.sequelize
-  .sync({force: true})
+  .sync()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
