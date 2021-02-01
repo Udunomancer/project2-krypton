@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Game = sequelize.define("Game", {
+  const GameDescription = sequelize.define("GameDescription", {
     gameTitle: DataTypes.STRING,
     playerAge: DataTypes.INTEGER,
     published: DataTypes.STRING,
@@ -10,11 +10,11 @@ module.exports = function (sequelize, DataTypes) {
     gameDescription: DataTypes.TEXT
   });
 
-  Game.associate = function (models) {
-    Game.hasMany(models.GameUnit, {
+  GameDescription.associate = function (models) {
+    GameDescription.hasMany(models.GameUnit, {
       onDelete: "cascade"
     });
   };
 
-  return Game;
+  return GameDescription;
 };
