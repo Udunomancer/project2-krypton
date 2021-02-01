@@ -34,14 +34,9 @@ router.post("/api/signup", function(req, res) {
       res.status(401).json(err);
     });
 });
-<<<<<<< HEAD
-// View new game form
-router.get("/games/new", (req, res) => {
-=======
 
 // Route that will return and display the form to add a new game description
 router.get("/game-description/new", (req, res) => {
->>>>>>> main
   res.render("new-game");
 });
 
@@ -75,12 +70,7 @@ router.post("/api/game-description/new", (req, res) => {
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
-<<<<<<< HEAD
-
-  db.Game.findAll()
-=======
   db.GameUnit.findAll()
->>>>>>> main
     .then((allGames) => {
       res.render("all-games",{ games: allGames });
     })
