@@ -12,4 +12,6 @@ $(document).ready(function() {
     }).then((response) => {
         console.log(response);
     })
+
+    
 })
