@@ -21,7 +21,7 @@ router.get("/login", (req, res) => {
 
 // Route to create a new user
 // User entered details from /signup sent to database
-router.post("/api/signup", function(req, res) {
+router.post("/api/signup", function (req, res) {
   db.User.create({
     name: req.body.name,
     email: req.body.email,
@@ -43,14 +43,7 @@ router.get("/game-description/new", (req, res) => {
 // Add new game description to the GameDescription table
 router.post("/api/game-description/new", (req, res) => {
   console.log(req.body);
-  // db.Game.create((req.body)
-  //   .then((createdGame) => {
-  //     res.json(createdGame);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(500).end();
-  //   }))
+
   db.GameDescription.create({
     gameTitle: req.body.gameTitle,
     playerAge: req.body.playerAge,
