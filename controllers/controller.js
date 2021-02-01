@@ -67,9 +67,10 @@ router.post("/api/games/new", (req, res) => {
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
+
   db.Game.findAll()
     .then((allGames) => {
-      res.render("all-games", { games: allGames });
+      res.render("all-games",{ games: allGames });
     })
     .catch((err) => {
       console.log(err);
