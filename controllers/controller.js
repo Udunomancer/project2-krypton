@@ -19,16 +19,18 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-<<<<<<< HEAD
-// Route to create a new user
-// User entered details from /signup sent to database
-=======
 // --- View Search Results Page ---
 router.get("/search", (req, res) => {
   res.render("search");
 });
 
->>>>>>> 3eea618 (added search page and get route)
+// --- View Search Results Page with Search Term ---
+router.get("/search/:title", (req, res) => {
+  res.render("search");
+});
+
+// Route to create a new user
+// User entered details from /signup sent to database
 router.post("/api/signup", function(req, res) {
   db.User.create({
     name: req.body.name,
@@ -43,13 +45,8 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-<<<<<<< HEAD
 // Route that will return and display the form to add a new game description
 router.get("/game-description/new", (req, res) => {
-=======
-// View new game form
-router.get("/games/new", (req, res) => {
->>>>>>> 3eea618 (added search page and get route)
   res.render("new-game");
 });
 

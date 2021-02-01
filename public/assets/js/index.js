@@ -9,12 +9,10 @@ $(document).ready(function() {
     function searchGames(event) {
         event.preventDefault();
 
-        const searchInput = {
-            value: searchTerm.val().trim()
-        };
-
-        console.log(searchInput);
+        console.log(encodeURI(searchTerm.val().trim()));
+        
+        
     }
 
     searchForm.on("submit", searchGames);    
-})
+});
