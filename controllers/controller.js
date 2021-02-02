@@ -30,11 +30,6 @@ router.get("/search?title=:title", (req, res) => {
   res.render("search");
 });
 
-// --- View Individual Game Description Page ---
-router.get("/game-description/:id", function(req, res) {
-  res.render("single-game-description");
-});
-
 // Route to create a new user
 // User entered details from /signup sent to database
 router.post("/api/signup", function (req, res) {
@@ -58,6 +53,11 @@ router.get("/game-description/new", (req, res) => {
       const hbsObject = { users: allUsers };
       res.render("new-game", hbsObject);
     });
+});
+
+// --- View Individual Game Description Page ---
+router.get("/game-description/:id", function(req, res) {
+  res.render("single-game-description");
 });
 
 // Add new game description to the GameDescription table
