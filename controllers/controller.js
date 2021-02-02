@@ -34,7 +34,6 @@ router.get("/search", (req, res) => {
 // --- View Search Results Page with Search Term ---
 router.get("/search/:title", (req, res) => {
   // res.render("search");
-  console.log("HI");
   db.GameDescription.findAll({
     where: { 
       gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")

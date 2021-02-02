@@ -16,15 +16,15 @@ $(document).ready(function () {
   function newSearch(event) { 
     event.preventDefault();
     let param = searchTerm.val();
-    console.log(param);
-
-    window.location.href = "search/" + param;
+    // console.log(param);
+    const URL = "/search/" + param;
+    window.location.href = URL;
     
-    // $.ajax("/search/" + param, {
-    //   type: "GET"
-    // }).then((response) => {
-    //   location.reload;
-    // });     
+  //   // $.ajax("/search/" + param, {
+  //   //   type: "GET"
+  //   // }).then((response) => {
+  //   //   location.reload;
+  //   // });     
   }
 
   // function searchGameDescriptions() {
@@ -62,3 +62,5 @@ $(document).ready(function () {
   searchForm.on("submit", newSearch);
   resultsEl.on("click", ".btn", viewGame);
 });
+
+

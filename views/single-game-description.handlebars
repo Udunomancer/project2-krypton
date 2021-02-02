@@ -3,8 +3,11 @@
     <div class="container">
         <div class="section">
             <div class="card">
+                <div class="card-title blue">
+                    {{gameTitle}}
+                </div>
                 <div class="card-content">
-                    <h1>{{gameTitle}}</h1>
+                    <p><strong>{{gameDescription}}</strong></p>
                     <p>Number of Players: {{minPlayers}}-{{maxPlayers}}</p>
                     <p>Estimated Time to Play: {{minPlayTime}}-{{maxPlayTime}}</p>
                     <p>Published: {{published}}</p>
@@ -13,14 +16,14 @@
                     <button class="btn">Add a Copy</button>
                 </div>
             </div>
-            <div class="card">
+            {{!-- <div class="card">
                 <div class="card-title">
                     <h4>Description</h4>
                 </div>
                 <div class="card-content">
                     <p>{{gameDescription}}</p>
                 </div>
-            </div>
+            </div> --}}
             <div class="card blue lighten-2">
                 <div class="card-content">
                     <ul>
