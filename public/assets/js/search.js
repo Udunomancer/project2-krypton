@@ -64,9 +64,15 @@ $(document).ready(function () {
     resultsEl.append(resultCard);
   }
 
+  function viewGame(event) {
+      console.log(event);
+      console.log(event.target.dataset.value);
+  }
+
   // === Function Calls ===
   searchGameDescriptions();
 
   // === Event Listeners ===
   searchForm.on("submit", newSearch);
+  resultsEl.on("click", ".btn", viewGame);
 });
