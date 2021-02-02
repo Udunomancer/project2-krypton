@@ -63,7 +63,10 @@ router.post("/api/game-description/new", (req, res) => {
       "gameTitle", "published", "playerAge", "published", "minPlayers", "maxPlayers",
       "minPlayTime", "maxPlayTime", "gameDescription"
     ]
-  })
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).end();
+  });
 });
 
 // === API Routes ===
