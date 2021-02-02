@@ -2,78 +2,61 @@ $(document).ready(function () {
   // === DOM Variables ===
   // Reference to the container
   const resultsEl = $("#results-contain");
-  // Reference to the search form
+  // Reference to the search items
   const searchForm = $(".search-games");
+  const searchTerm = $("#search-term");
   // === JS Variables ===
   // Getting Search Term from the URL
-  const pageURL = window.location.search;
-  const urlParams = new URLSearchParams(pageURL);
-  let searchTerm = urlParams.get("title");
+  // const pageURL = window.location.search;
+  // const urlParams = new URLSearchParams(pageURL);
+  // let searchTerm = urlParams.get("title");
   
   // === Function Definitions ===
 
-  function newSearch(event) {
-      event.preventDefault();
-      resultsEl.empty();
-      searchGameDescriptions();
+  function newSearch(event) { 
+    event.preventDefault();
+    let param = searchTerm.val();
+    console.log(param);
+
+    window.location.href = "search/" + param;
+    
+    // $.ajax("/search/" + param, {
+    //   type: "GET"
+    // }).then((response) => {
+    //   location.reload;
+    // });     
   }
 
-  function searchGameDescriptions() {
-    $.ajax({
-      type: "GET",
-      url: "/api/game-description/" + searchTerm,
-    }).then((response) => {
-      // <div class="card">
-      // <div class="card-content">
-      console.log(response);
-      if(response.length < 1) {
-        buildNoResults();
-      }
-      for (let i = 0; i < response.length; i++) {
-        buildResultCard(response[i]);
-      }
-    });
-  }
-
-  // function buildResultCard(currentResult) {
-  //   let resultCard = $("<div>");
-  //   resultCard.addClass("card");
-  //   resultCard.attr("data-table-id", currentResult.id);
-  //   let resultTitle = $("<div>");
-  //   resultTitle.addClass("card-title");
-  //   resultTitle.text(currentResult.gameTitle);
-  //   resultCard.append(resultTitle);
-  //   let resultContent = $("<div>");
-  //   resultContent.addClass("card-content");
-  //   resultContent.text(
-  //     "Description: " +
-  //       currentResult.gameDescription +
-  //       "\n" +
-  //       "Players: " +
-  //       currentResult.minPlayers +
-  //       "-" +
-  //       currentResult.maxPlayers
-  //   );
-  //   resultCard.append(resultContent);
-  //   let resultAction = $("<div>");
-  //   resultAction.addClass("card-action");
-  //   let resultButton = $("<button>");
-  //   resultButton.addClass("btn waves-effect waves-light orange");
-  //   resultButton.attr("type", "submit");
-  //   resultButton.attr("data-value", currentResult.id);
-  //   resultButton.text("View Game");
-  //   resultAction.append(resultButton);
-  //   resultCard.append(resultAction);
-  //   resultsEl.append(resultCard);
+  // function searchGameDescriptions() {
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "/api/game-description/" + searchTerm,
+  //   }).then((response) => {
+  //     // <div class="card">
+  //     // <div class="card-content">
+  //     console.log(response);
+  //     if(response.length < 1) {
+  //       buildNoResults();
+  //     }
+  //     for (let i = 0; i < response.length; i++) {
+  //       buildResultCard(response[i]);
+  //     }
+  //   });
   // }
 
   function viewGame(event) {
       const param = event.target.dataset.value;
+      console.log(param);
       window.location.href = "/game-description/" + param;
+      // $.ajax("/game-description/" + param, {
+      //    type: "GET"
+      // }).then((response) => {
+      //   console.log(response);
+      // })
   }
 
   // === Function Calls ===
-  searchGameDescriptions();
+  // searchGameDescriptions();
 
   // === Event Listeners ===
   searchForm.on("submit", newSearch);

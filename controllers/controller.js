@@ -73,7 +73,16 @@ router.get("/game-description/new", (req, res) => {
 
 // --- View Individual Game Description Page ---
 router.get("/game-description/:id", function(req, res) {
-  res.render("single-game-description");
+  let searchId = parseInt(req.body.id);
+  console.log(searchId)
+  db.GameDescription.findAll({
+    where: { id: 1 }
+  })
+  .then((game) => {
+    const hbsObject = game[0].dataValues;
+    console.log(hbsObject);
+    res.render("single-game-description", hbsObject);
+  });
 });
 
 // Add new game description to the GameDescription table
