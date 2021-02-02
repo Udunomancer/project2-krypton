@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
     maxPlayers: DataTypes.INTEGER,
     minPlayTime: DataTypes.INTEGER,
     maxPlayTime: DataTypes.INTEGER,
-    description: DataTypes.TEXT
+    gameDescription: DataTypes.TEXT
   });
 
   GameDescription.associate = function (models) {
