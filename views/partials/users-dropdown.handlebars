@@ -1,13 +1,12 @@
+<!-- Dropdown Trigger -->
+<a class='dropdown-trigger btn orange' href='#' data-target='dropdown1'>Select User</a>
 
-    <!-- Dropdown Trigger -->
-        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select User</a>
+<!-- Dropdown Structure -->
+<ul id='dropdown1' class='dropdown-content'>
+  <li><a href="/games/">View all games</a></li>
+  {{#each users}}
 
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="/games/">View all games</a></li>
-            {{#each users}}
+  <li><a href="/games/{{id}}">{{name}}</a></li>
 
-            <li><a href="/games/{{id}}">{{name}}</a></li>
-
-            {{/each}}
-        </ul>
+  {{/each}}
+</ul>
