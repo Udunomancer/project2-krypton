@@ -40,10 +40,21 @@ $(document).ready(function() {
       .catch((err) => {
         res.status(500);
       });
-  }
+  };
 
-  // function handleLoginErr(err) {
-  //   $("#alert .msg").text(err.responseJSON);
-  //   $("#alert").fadeIn(500);
-  // }
+  $("#delete-game").on("click", function(event) {
+    var id = $(this).data("id");
+
+    // Send the DELETE request.
+    $.ajax("/api/games/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted games", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
 });
