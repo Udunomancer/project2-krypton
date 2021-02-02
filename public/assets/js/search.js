@@ -26,8 +26,11 @@ $(document).ready(function () {
       // <div class="card">
       // <div class="card-content">
       console.log(response);
+      if(response.length < 1) {
+        buildNoResults();
+      }
       for (let i = 0; i < response.length; i++) {
-          buildResultCard(response[i]);
+        buildResultCard(response[i]);
       }
     });
   }
