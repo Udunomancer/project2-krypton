@@ -19,7 +19,7 @@ $(".submitButton").on("click", function (e) {
             gameTitle: $("#gameTitle").val(),
             playerAge: $("#playerAge").val(),
             published: $("#published").val(),
-            // gameOwner: $("#ownerDropdown").val(),
+            gameOwner: $("#ownerDropdown").val(),
             minPlayers: $("#minPlayers").val(),
             maxPlayers: $("#maxPlayers").val(),
             minPlayTime: $("#minPlayTime").val(),

@@ -1,5 +1,6 @@
 const { response } = require("express");
 const express = require("express");
+const { sequelize } = require("../models");
 const db = require("../models");
 
 const router = express.Router();
@@ -30,11 +31,6 @@ router.get("/search?title=:title", (req, res) => {
   res.render("search");
 });
 
-// --- View Individual Game Description Page ---
-router.get("/game-description/:id", function(req, res) {
-  res.render("single-game-description");
-});
-
 // Route to create a new user
 // User entered details from /signup sent to database
 router.post("/api/signup", function (req, res) {
@@ -60,6 +56,11 @@ router.get("/game-description/new", (req, res) => {
     });
 });
 
+// --- View Individual Game Description Page ---
+router.get("/game-description/:id", function(req, res) {
+  res.render("single-game-description");
+});
+
 // Add new game description to the GameDescription table
 router.post("/api/game-description/new", (req, res) => {
   console.log(req.body);
@@ -78,13 +79,17 @@ router.post("/api/game-description/new", (req, res) => {
       "gameTitle", "published", "playerAge", "published", "minPlayers", "maxPlayers",
       "minPlayTime", "maxPlayTime", "gameDescription"
     ]
-  }).then(
+  }).then((gameDesc) => {
+    let UserID = parseInt(req.body.gameOwner);
+    let gameDescID = gameDesc.dataValues.id;
     db.GameUnit.create({
-      rented: false
+       rented: false,
+       GameDescriptionId: gameDescID,
+       UserId: UserID
     }, {
-      fields: ["rented"]
+       fields: ["rented", "GameDescriptionId", "UserId"]
     })
-  )
+  })
 });
 
 // === API Routes ===
@@ -132,7 +137,11 @@ router.get("/games/:userId", (req, res) => {
 });
 // Route to return all games that match title search term
 router.get("/api/game-description/:title", (req, res) => {
-  db.GameDescription.findAll()
+  db.GameDescription.findAll({
+    where: {
+      gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")
+    }
+  })
     .then((allGames) => {
       res.json(allGames);
     })
