@@ -20,6 +20,21 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// --- View Search Results Page ---
+router.get("/search", (req, res) => {
+  res.render("search");
+});
+
+// --- View Search Results Page with Search Term ---
+router.get("/search?title=:title", (req, res) => {
+  res.render("search");
+});
+
+// --- View Individual Game Description Page ---
+router.get("/game-description/:id", function(req, res) {
+  res.render("single-game-description");
+});
+
 // Route to create a new user
 // User entered details from /signup sent to database
 router.post("/api/signup", function (req, res) {
@@ -85,5 +100,17 @@ router.get("/games", (req, res) => {
       res.status(500).end();
     });
 });
+
+// Route to return all games that match title search term
+router.get("/api/game-description/:title", (req, res) => {
+  db.GameDescription.findAll()
+    .then((allGames) => {
+      res.json(allGames);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).end();
+    })
+})
 
 module.exports = router;
