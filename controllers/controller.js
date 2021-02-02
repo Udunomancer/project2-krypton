@@ -1,5 +1,6 @@
 const { response } = require("express");
 const express = require("express");
+const { sequelize } = require("../models");
 const db = require("../models");
 
 const router = express.Router();
@@ -132,7 +133,11 @@ router.get("/games/:userId", (req, res) => {
 });
 // Route to return all games that match title search term
 router.get("/api/game-description/:title", (req, res) => {
-  db.GameDescription.findAll()
+  db.GameDescription.findAll({
+    where: {
+      gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")
+    }
+  })
     .then((allGames) => {
       res.json(allGames);
     })
