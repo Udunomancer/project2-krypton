@@ -7,7 +7,7 @@ $(".submitButton").on("click", function (e) {
 
     $.ajax({
         type: "POST",
-        url: "/api/games/new",
+        url: "/api/game-description/new",
         data: {
             gameTitle: $("#gameTitle").val(),
             published: $("#published").val(),
