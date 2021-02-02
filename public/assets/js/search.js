@@ -65,8 +65,8 @@ $(document).ready(function () {
   }
 
   function viewGame(event) {
-      console.log(event);
-      console.log(event.target.dataset.value);
+      const param = event.target.dataset.value;
+      window.location.href = "/game-description/" + param;
   }
 
   // === Function Calls ===
