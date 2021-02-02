@@ -79,13 +79,17 @@ router.post("/api/game-description/new", (req, res) => {
       "gameTitle", "published", "playerAge", "published", "minPlayers", "maxPlayers",
       "minPlayTime", "maxPlayTime", "gameDescription"
     ]
-  }).then(
+  }).then((gameDesc) => {
+    let UserID = parseInt(req.body.gameOwner);
+    let gameDescID = gameDesc.dataValues.id;
     db.GameUnit.create({
-      rented: false
+       rented: false,
+       GameDescriptionId: gameDescID,
+       UserId: UserID
     }, {
-      fields: ["rented"]
+       fields: ["rented", "GameDescriptionId", "UserId"]
     })
-  )
+  })
 });
 
 // === API Routes ===

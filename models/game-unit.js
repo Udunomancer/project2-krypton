@@ -12,6 +12,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
+    GameUnit.belongsTo(models.GameDescription, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
   };
 
     return GameUnit;
