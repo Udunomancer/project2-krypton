@@ -13,7 +13,7 @@ $(document).ready(function () {
         const param = encodeURI(searchTerm.val().trim());
 
         if (param) {
-            URL = URL + "?title=" + param;
+            URL = URL + "/" + param;
         }
 
         window.location.href = URL;

@@ -17,7 +17,9 @@
         </div>
         <div class="section" id="results-contain">
             {{!-- Row of 3 --}}
-                {{!-- Individual Cards --}}
+            {{#each games}}
+                {{> search-result-block}}
+            {{/each}}
             {{!-- Row of 3 End --}}
         </div>
     </div>
