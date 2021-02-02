@@ -31,20 +31,10 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/api/config", (req, res) => {
-  res.json({
-    success: true,
-  });
-});
-
 app.use(controller);
 
 db.sequelize
-  .sync({force: true})
+  .sync()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
