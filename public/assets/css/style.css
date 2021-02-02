@@ -1,3 +1,16 @@
+input:focus, select:focus, textarea:focus {
+    border-bottom: 1px solid #3f6d88 !important;
+    box-shadow: 0 1px 0 0 #3f6d88 !important;
+}
+
+label {
+    color: #3f6d88 !important;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: #fe9b00; /* no need for !important :) */
+}
+
 /* Update to materialize default colors */
 .blue { background-color: #3f6d88 !important}
 .blue.lighten-5 { background-color: #8ecae6 !important }
