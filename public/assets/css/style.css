@@ -11,6 +11,11 @@ ul.dropdown-content.select-dropdown li span {
     color: #fe9b00; /* no need for !important :) */
 }
 
+.modal {
+    max-height: 100%;
+    overflow: visible;
+}
+
 /* Update to materialize default colors */
 .blue { background-color: #3f6d88 !important}
 .blue.lighten-5 { background-color: #8ecae6 !important }

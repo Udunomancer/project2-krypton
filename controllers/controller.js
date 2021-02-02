@@ -72,16 +72,19 @@ router.get("/game-description/new", (req, res) => {
 
 // --- View Individual Game Description Page ---
 router.get("/game-description/:id", function(req, res) {
+  let hbsObject = {};
   let searchId = parseInt(req.params.id);
   db.GameDescription.findAll({
     where: { id: searchId },
     include: db.GameUnit
   })
   .then((game) => {
-    const hbsObject = game[0].dataValues;
-    console.log(hbsObject);
-    res.render("single-game-description", hbsObject);
-  });
+    hbsObject.game = game[0].dataValues;
+    db.User.findAll().then((allUsers) => {
+      hbsObject.users = allUsers;
+      res.render("single-game-description", hbsObject);
+    })
+  })
 });
 
 // Add new game description to the GameDescription table
@@ -173,6 +176,17 @@ router.delete("/api/games/:id", (req, res) => {
       res.status(404).end();
     });
 });
+
+router.get("/api/user", (req, res) => {
+  db.User.findAll()
+  .then((result) => {
+    res.json(result);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(404).end();
+  })
+})
 
 // Route to return all games that match title search term
 // router.get("/api/game-description/:title", (req, res) => {
