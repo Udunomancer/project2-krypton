@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Reference to the search form
     const searchForm = $(".search-games")
     // Reference to the search text input
@@ -15,9 +15,9 @@ $(document).ready(function() {
         if (param) {
             URL = URL + "?title=" + param;
         }
-        
+
         window.location.href = URL;
     }
 
-    searchForm.on("submit", searchGames);    
+    searchForm.on("submit", searchGames);
 });
