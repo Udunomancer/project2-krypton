@@ -1,13 +1,13 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and input
   var signUpForm = $(".sign-up");
   var nameInput = $("#user-name");
   var emailInput = $("#email");
   var passwordInput = $("#password");
-  
+
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
       name: nameInput.val().trim(),
@@ -33,23 +33,23 @@ $(document).ready(function() {
       password: password,
       name: name
     })
-      .then(function(data) {
-        window.location.replace("/login");
-       console.log(data);
+      .then(function (data) {
+        window.location.replace("/");
+        console.log(data);
       })
       .catch((err) => {
         res.status(500);
       });
   };
 
-  $("#delete-game").on("click", function(event) {
+  $("#delete-game").on("click", function (event) {
     var id = $(this).data("id");
 
     // Send the DELETE request.
     $.ajax("/api/games/" + id, {
       type: "DELETE"
     }).then(
-      function() {
+      function () {
         console.log("deleted games", id);
         // Reload the page to get the updated list
         location.reload();
