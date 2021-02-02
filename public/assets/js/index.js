@@ -9,12 +9,15 @@ $(document).ready(function() {
     function searchGames(event) {
         event.preventDefault();
 
-        const searchInput = {
-            value: searchTerm.val().trim()
-        };
+        let URL = "/search";
+        const param = encodeURI(searchTerm.val().trim());
 
-        console.log(searchInput);
+        if (param) {
+            URL = URL + "?title=" + param;
+        }
+        
+        window.location.href = URL;
     }
 
     searchForm.on("submit", searchGames);    
-})
+});
