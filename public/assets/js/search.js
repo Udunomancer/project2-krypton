@@ -35,6 +35,7 @@ $(document).ready(function () {
   function buildResultCard(currentResult) {
     let resultCard = $("<div>");
     resultCard.addClass("card");
+    resultCard.attr("data-table-id", currentResult.id);
     let resultTitle = $("<div>");
     resultTitle.addClass("card-title");
     resultTitle.text(currentResult.gameTitle);
@@ -51,6 +52,15 @@ $(document).ready(function () {
         currentResult.maxPlayers
     );
     resultCard.append(resultContent);
+    let resultAction = $("<div>");
+    resultAction.addClass("card-action");
+    let resultButton = $("<button>");
+    resultButton.addClass("btn waves-effect waves-light orange");
+    resultButton.attr("type", "submit");
+    resultButton.attr("data-value", currentResult.id);
+    resultButton.text("View Game");
+    resultAction.append(resultButton);
+    resultCard.append(resultAction);
     resultsEl.append(resultCard);
   }
 
