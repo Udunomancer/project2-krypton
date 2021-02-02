@@ -3,8 +3,8 @@ $(document).ready(function () {
   // Reference to the container
   const resultsEl = $("#results-contain");
   // Reference to the search items
-  const searchForm = $(".search-games");
-  const searchTerm = $("#search-term");
+  // const searchForm = $(".search-games");
+  // const searchTerm = $("#search-term");
   // === JS Variables ===
   // Getting Search Term from the URL
   // const pageURL = window.location.search;
@@ -13,19 +13,19 @@ $(document).ready(function () {
   
   // === Function Definitions ===
 
-  function newSearch(event) { 
-    event.preventDefault();
-    let param = searchTerm.val();
-    console.log(param);
-
-    window.location.href = "search/" + param;
+  // function newSearch(event) { 
+  //   event.preventDefault();
+  //   let param = searchTerm.val();
+  //   console.log(param);
+  //   const URL = "search/" + param;
+  //   window.location.href = URL;
     
-    // $.ajax("/search/" + param, {
-    //   type: "GET"
-    // }).then((response) => {
-    //   location.reload;
-    // });     
-  }
+  //   // $.ajax("/search/" + param, {
+  //   //   type: "GET"
+  //   // }).then((response) => {
+  //   //   location.reload;
+  //   // });     
+  // }
 
   // function searchGameDescriptions() {
   //   $.ajax({
@@ -59,6 +59,8 @@ $(document).ready(function () {
   // searchGameDescriptions();
 
   // === Event Listeners ===
-  searchForm.on("submit", newSearch);
+  // searchForm.on("submit", newSearch);
   resultsEl.on("click", ".btn", viewGame);
 });
+
+
