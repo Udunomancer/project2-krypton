@@ -1,10 +1,39 @@
-{{#each games}}
-    <h1>{{gameTitle}}</h1>
-    <p>{{gameOwner}}</p>
-    <p>{{minPlayers}}</p>
-    <p>{{maxPlayers}}</p>
-    <p>{{minPlayTime}}</p>
-    <p>{{maxPlayTim}}</p>
-    <p>{{gameDescription}}</p>
+{{> header-block}}
+<div class=" container">
+    <div class="card row">
+        <div class="row">
+        <h3 class="center-align">All Games</h3>
 
-{{/each}}
+    
+ {{> users-dropdown}}   
+</div>
+        <div class="col m10">
+        {{#each gameunits}}
+
+        <div class="col s5 m3">
+            <div class="card small blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"></span>
+
+                    <p>{{id}}</p>
+                    <ul>
+                        {{#User}}
+                        <li>{{name}}</li>
+                        <li>{{email}}</li>
+                        {{/User}}
+                    </ul>
+                    <p>{{rented}}</p>
+
+                </div>
+                <div class="card-action">
+                    <a href="#">Return</a>
+                    <a href="#">Borrow</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    </div>
+</div>
+</div>

@@ -8,7 +8,7 @@ const router = express.Router();
 // Route that will return and display home page (index)
 router.get("/", (req, res) => {
   res.render("index");
-})
+});
 
 // Route that will return and display new user form
 router.get("/signup", (req, res) => {
@@ -41,7 +41,7 @@ router.post("/api/signup", function (req, res) {
   db.User.create({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
   })
     .then(function () {
       res.status(200).end();
@@ -90,17 +90,46 @@ router.post("/api/game-description/new", (req, res) => {
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
-  db.GameUnit.findAll()
-    .then((allGames) => {
-      res.render("all-games", { games: allGames });
+  db.User.findAll({}).then(function (data) {
+    db.GameUnit.findAll({
+      include: [db.User],
     })
-    .catch((err) => {
-      console.log(err);
-      //TODO: render 404 page if we're unable to return trains
-      res.status(500).end();
-    });
+      .then(function (games) {
+        res.render("all-games", { gameunits: games, users: data });
+        // res.json(games);
+        console.log(games);
+      })
+      .catch((err) => {
+        console.log(err);
+
+        res.status(500).end();
+      });
+  });
 });
 
+router.get("/games/:userId", (req, res) => {
+  db.User.findAll({}).then(function (data) {
+    var query = {};
+    if (req.params.userId) {
+      query.UserId = req.params.userId;
+    }
+
+    db.GameUnit.findAll({
+      where: query,
+      include: [db.User],
+    })
+      .then(function (games) {
+        res.render("all-games", { gameunits: games, users: data });
+        // res.json(games);
+        console.log(games);
+      })
+      .catch((err) => {
+        console.log(err);
+
+        res.status(500).end();
+      });
+  });
+});
 // Route to return all games that match title search term
 router.get("/api/game-description/:title", (req, res) => {
   db.GameDescription.findAll()
