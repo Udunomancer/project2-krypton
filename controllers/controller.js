@@ -130,6 +130,22 @@ router.get("/games/:userId", (req, res) => {
       });
   });
 });
+
+router.delete("/api/games/:id", (req, res) => {
+  db.GameUnit.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).end();
+    });
+});
+
 // Route to return all games that match title search term
 router.get("/api/game-description/:title", (req, res) => {
   db.GameDescription.findAll()
