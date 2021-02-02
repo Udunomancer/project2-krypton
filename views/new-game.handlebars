@@ -3,67 +3,70 @@
   <div class="col l3"></div>
   <div class="col l6 s12">
     <div class="row">
-      <form class="col s12" id="newGameForm">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Enter game title" id="gameTitle" type="text" class="validate">
-            <label for="gameTitle">Game Title</label>
+      <div class="section">
+        <form class="col s12 hoverable" id="newGameForm">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Enter game title" id="gameTitle" type="text" class="validate">
+              <label for="gameTitle">Game Title</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Enter game title" id="published" type="text" class="validate">
+              <label for="published">Published Year</label>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <input placeholder="Enter game title" id="published" type="text" class="validate">
-            <label for="published">Published Year</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <select id="ownerDropdown">
-              <option value="" selected>Make Selection</option>
-              {{#each users}}
-              {{> owner-block}}
-              {{/each}}
-            </select>
-            <label>Select Game Owner</label>
-          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <select id="ownerDropdown">
+                <option value="" selected>Make Selection</option>
+                {{#each users}}
+                {{> owner-block}}
+                {{/each}}
+              </select>
+              <label>Select Game Owner</label>
+            </div>
 
-          <div class="input-field col s6">
-            <input placeholder="Enter age" id="playerAge" type="number" class="validate">
-            <label for="playerAge">Players Age</label>
+            <div class="input-field col s6">
+              <input placeholder="Enter age" id="playerAge" type="number" class="validate">
+              <label for="playerAge">Players Age</label>
 
 
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Enter minimum players" id="minPlayers" type="number" class="validate">
-            <label for="minPlayers">Minimum Players</label>
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Enter minimum players" id="minPlayers" type="number" class="validate">
+              <label for="minPlayers">Minimum Players</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Enter maximum players" id="maxPlayers" type="number" class="validate">
+              <label for="maxPlayers">Maximum Players</label>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <input placeholder="Enter maximum players" id="maxPlayers" type="number" class="validate">
-            <label for="maxPlayers">Maximum Players</label>
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Enter minimum playtime" id="minPlayTime" type="number" class="validate">
+              <label for="minPlayTime">Minimum Playtime</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Enter maximum playtime" id="maxPlayTime" type="number" class="validate">
+              <label for="maxPlayTime">Maximum Playtime</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Enter minimum playtime" id="minPlayTime" type="number" class="validate">
-            <label for="minPlayTime">Minimum Playtime</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="gameDescription" class="materialize-textarea"></textarea>
+              <label for="gameDescription">Game Description</label>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <input placeholder="Enter maximum playtime" id="maxPlayTime" type="number" class="validate">
-            <label for="maxPlayTime">Maximum Playtime</label>
+          <div class="row center-align">
+            <button class="btn waves-effect waves-light submitButton orange" type="submit" name="action">Submit
+              Game</button>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="gameDescription" class="materialize-textarea"></textarea>
-            <label for="gameDescription">Game Description</label>
-          </div>
-        </div>
-        <div class="row center-align">
-          <button class="btn waves-effect waves-light submitButton orange" type="submit" name="action">Submit
-            Game</button>
-        </div>
+      </div>
+      </form>
     </div>
-    </form>
+
   </div>
   <div class="col l3"></div>
 </div>
