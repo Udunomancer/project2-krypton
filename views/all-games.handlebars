@@ -1,48 +1,39 @@
 {{> header-block}}
 <div class=" container">
     <div class="card row">
+        <div class="row">
         <h3 class="center-align">All Games</h3>
 
-        <!-- Dropdown Trigger -->
-        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+    
+ {{> users-dropdown}}   
+</div>
+        <div class="col m10">
+        {{#each gameunits}}
 
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-            {{#each users}}
+        <div class="col s5 m3">
+            <div class="card small blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"></span>
 
+                    <p>{{id}}</p>
+                    <ul>
+                        {{#User}}
+                        <li>{{name}}</li>
+                        <li>{{email}}</li>
+                        {{/User}}
+                    </ul>
+                    <p>{{rented}}</p>
 
-            <li><a href="#!">{{name}}</a></li>
-            
-        
-            {{/each}}
-        </ul> 
+                </div>
+                <div class="card-action">
+                    <a href="#">Return</a>
+                    <a href="#">Borrow</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
-
-    <div class="col m10">
-{{#each gameunits}}
-
-<div class="col s5 m3">
-    <div class="card small blue-grey darken-1">
-        <div class="card-content white-text">
-            <span class="card-title"></span>
-
-            <p>{{id}}</p>
-            <p>{{name}}</p>
-            <p>{{password}}</p>
-            <p>{{email}}</p>
-            <p>{{createdAt}}</p>
-            <p>{{User}}</p>
-          
-
-        </div>
-        <div class="card-action">
-            <a href="#">Return</a>
-            <a href="#">Borrow</a>
-            <a href="#">Delete</a>
-        </div>
     </div>
 </div>
-{{/each}}
-</div>
-
 </div>

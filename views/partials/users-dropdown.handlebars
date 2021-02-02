@@ -1,0 +1,13 @@
+
+    <!-- Dropdown Trigger -->
+        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="/games/">all games</a></li>
+            {{#each users}}
+
+            <li><a href="/games/{{id}}">{{name}}</a></li>
+
+            {{/each}}
+        </ul>

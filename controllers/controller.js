@@ -72,57 +72,62 @@ router.post("/api/game-description/new", (req, res) => {
 router.get("/games", (req, res) => {
 
   db.User.findAll({}).then(function(data){
-    res.render("all-games", { users: data });
+
+
+ db.GameUnit.findAll({
+  include: [db.User]
+}).then(function(games) {
+
+  res.render("all-games", { gameunits: games, users: data });
+  // res.json(games);
+  console.log(games);
+})
+.catch((err) => {
+      console.log(err);
+    
+      res.status(500).end();
+    });
+
   });
  
 });
 
 router.get("/games/:userId", (req, res) => {
 
+  
   db.User.findAll({}).then(function(data){
-    var query = {};
-      if (req.params.userId) {
-    query.UserId = req.params.userId;
-  };
-    
-   db.GameUnit.findAll({
-    where: query,
-    include: [db.User]
-  }).then(function(games) {
 
-    res.render("all-games", { users:  });
-    res.json(games);
-    console.log(games);
+    var query = {};
+    if (req.params.userId) {
+  query.UserId = req.params.userId;
+};
+  
+ db.GameUnit.findAll({
+  where: query,
+  include: [db.User]
+}).then(function(games) {
+
+  res.render("all-games", { gameunits: games, users: data });
+  // res.json(games);
+  console.log(games);
+})
+.catch((err) => {
+      console.log(err);
+    
+      res.status(500).end();
+    });
+
   });
+
+  
 
   });
  
-});
 
 
- // var query = {};
-  // if (req.query.user_id) {
-  //   query.UserId = req.query.user_id;
-  // }
 
-  // db.gameDescription.findAll({
-  //   where: query,
-  //   include: [db.User]
-  // }).then(function(games) {
-  //   res.json(games);
-  //   console.log(games);
-  // });
 
-  // db.GameDescription.findAll()
-  //   .then((allGames) => {
-  //     res.render("all-games",{ games: allGames });
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     //TODO: render 404 page if we're unable to return trains
-  //     res.status(500).end();
-  //   });
-  
+
 
 
 
