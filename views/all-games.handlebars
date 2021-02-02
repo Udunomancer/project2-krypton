@@ -22,13 +22,18 @@
                         <li>{{email}}</li>
                         {{/User}}
                     </ul>
-                    <p>{{rented}}</p>
+                    
+                     {{#unless rented}}
+                     {{> rent-block rent=false}}
+                      {{/unless}}
+                     {{#if rented}}
+                    {{> rent-block rent=true}}
+                     {{/if}}
+                
 
                 </div>
-                <div class="card-action">
-                    <a href="#">Return</a>
-                    <a href="#">Borrow</a>
-                    <button id="delete-game" data-id="{{this.id}}">DELETE!</button>
+                <div class="card-action center-align">              
+                    <button class="btn waves-effect waves-light orange" id="delete-game" data-id="{{this.id}}">DELETE!</button>
                 </div>
             </div>
         </div>

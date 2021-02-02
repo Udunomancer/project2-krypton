@@ -173,6 +173,23 @@ router.delete("/api/games/:id", (req, res) => {
     });
 });
 
+router.put("/api/games/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  db.GameUnit.update({
+    rented: req.body.rented
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
 // Route to return all games that match title search term
 // router.get("/api/game-description/:title", (req, res) => {
 //   db.GameDescription.findAll({
