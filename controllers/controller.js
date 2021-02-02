@@ -74,7 +74,8 @@ router.get("/game-description/new", (req, res) => {
 router.get("/game-description/:id", function(req, res) {
   let searchId = parseInt(req.params.id);
   db.GameDescription.findAll({
-    where: { id: searchId }
+    where: { id: searchId },
+    include: db.GameUnit
   })
   .then((game) => {
     const hbsObject = game[0].dataValues;

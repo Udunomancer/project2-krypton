@@ -31,9 +31,12 @@
                 <div class="card-content">
                     <table>
                         <tr>
-                            <td>Owner</td>
-                            <td>Rent Status</td>    
+                            <th>Owner</th>
+                            <th>Rent Status</th>    
                         </tr>
+                        {{#each GameUnits}}
+                        {{> game-copy-block}}
+                        {{/each}}
                     </table>
                 </div>
             </div>
