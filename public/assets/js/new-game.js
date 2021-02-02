@@ -1,18 +1,25 @@
 $(document).ready(function () {
     $('select').formSelect();
-});
+
+    $.ajax({
+        type: "GET",
+        url: "/api/users/"
+    }).then((response) => {
+        console.log(response);
+    })
+})
 
 $(".submitButton").on("click", function (e) {
     e.preventDefault();
 
     $.ajax({
         type: "POST",
-        url: "/api/games/new",
+        url: "/api/game-description/new",
         data: {
             gameTitle: $("#gameTitle").val(),
-            published: $("#published").val(),
-            gameOwner: "TBD",
             playerAge: $("#playerAge").val(),
+            published: $("#published").val(),
+            // gameOwner: $("#ownerDropdown").val(),
             minPlayers: $("#minPlayers").val(),
             maxPlayers: $("#maxPlayers").val(),
             minPlayTime: $("#minPlayTime").val(),

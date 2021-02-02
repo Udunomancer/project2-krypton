@@ -3,28 +3,28 @@
   <div class="col l3"></div>
   <div class="col l6 s12">
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" id="newGameForm">
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="Enter game title" id="gameTitle" type="text" class="validate">
             <label for="gameTitle">Game Title</label>
           </div>
-                    <div class="input-field col s6">
+          <div class="input-field col s6">
             <input placeholder="Enter game title" id="published" type="text" class="validate">
             <label for="published">Published Year</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <select>
+            <select id="ownerDropdown">
               <option value="" selected>Make Selection</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+              {{#each users}}
+              {{> owner-block}}
+              {{/each}}
             </select>
             <label>Select Game Owner</label>
           </div>
-                    <div class="input-field col s6">
+          <div class="input-field col s6">
             <input placeholder="Enter age" id="playerAge" type="text" class="validate">
             <label for="playerAge">Minimum Players</label>
           </div>
