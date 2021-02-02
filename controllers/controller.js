@@ -23,12 +23,26 @@ router.get("/login", (req, res) => {
 
 // --- View Search Results Page ---
 router.get("/search", (req, res) => {
-  res.render("search");
+  // res.render("search");
+  db.GameDescription.findAll()
+  .then((allGames) => {
+    const hbsObject = { games: allGames };
+    res.render("search", hbsObject);
+  })
 });
 
 // --- View Search Results Page with Search Term ---
-router.get("/search?title=:title", (req, res) => {
-  res.render("search");
+router.get("/search/:title", (req, res) => {
+  // res.render("search");
+  db.GameDescription.findAll({
+    where: { 
+      gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")
+    }
+  })
+  .then((allGames) => {
+    const hbsObject = { games: allGames };
+    res.render("search", hbsObject);
+  })
 });
 
 // Route to create a new user
@@ -58,7 +72,15 @@ router.get("/game-description/new", (req, res) => {
 
 // --- View Individual Game Description Page ---
 router.get("/game-description/:id", function(req, res) {
-  res.render("single-game-description");
+  let searchId = parseInt(req.params.id);
+  db.GameDescription.findAll({
+    where: { id: searchId }
+  })
+  .then((game) => {
+    const hbsObject = game[0].dataValues;
+    console.log(hbsObject);
+    res.render("single-game-description", hbsObject);
+  });
 });
 
 // Add new game description to the GameDescription table
@@ -152,19 +174,19 @@ router.delete("/api/games/:id", (req, res) => {
 });
 
 // Route to return all games that match title search term
-router.get("/api/game-description/:title", (req, res) => {
-  db.GameDescription.findAll({
-    where: {
-      gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")
-    }
-  })
-    .then((allGames) => {
-      res.json(allGames);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).end();
-    })
-})
+// router.get("/api/game-description/:title", (req, res) => {
+//   db.GameDescription.findAll({
+//     where: {
+//       gameTitle: sequelize.where(sequelize.fn("LOWER", sequelize.col("gameTitle")), "LIKE", "%" + req.params.title + "%")
+//     }
+//   })
+//     .then((allGames) => {
+//       res.json(allGames);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).end();
+//     })
+// })
 
 module.exports = router;
