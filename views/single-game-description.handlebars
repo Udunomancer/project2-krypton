@@ -2,42 +2,48 @@
 <main>
     <div class="container">
         <div class="section">
-            <div class="card">
-                <div class="card-title blue">
-                    {{gameTitle}}
+            <div class="row">
+                <div col="col s6">
+                    <div class="card">
+                        <div class="card-title blue">
+                            {{gameTitle}}
+                        </div>
+                        <div class="card-content">
+                            <p><strong>{{gameDescription}}</strong></p>
+                            <p>Number of Players: {{minPlayers}}-{{maxPlayers}}</p>
+                            <p>Estimated Time to Play: {{minPlayTime}}-{{maxPlayTime}}</p>
+                            <p>Published: {{published}}</p>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn">Add a Copy</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p><strong>{{gameDescription}}</strong></p>
-                    <p>Number of Players: {{minPlayers}}-{{maxPlayers}}</p>
-                    <p>Estimated Time to Play: {{minPlayTime}}-{{maxPlayTime}}</p>
-                    <p>Published: {{published}}</p>
-                </div>
-                <div class="card-action">
-                    <button class="btn">Add a Copy</button>
-                </div>
-            </div>
-            {{!-- <div class="card">
-                <div class="card-title">
-                    <h4>Description</h4>
-                </div>
-                <div class="card-content">
-                    <p>{{gameDescription}}</p>
-                </div>
-            </div> --}}
-            <div class="card">
-                <div class="card-title blue lighten-2">
-                    Available Copies for Rental
-                </div>
-                <div class="card-content">
-                    <table>
-                        <tr>
-                            <th>Owner</th>
-                            <th>Rent Status</th>    
-                        </tr>
-                        {{#each GameUnits}}
-                        {{> game-copy-block}}
-                        {{/each}}
-                    </table>
+                {{!-- <div class="card">
+                    <div class="card-title">
+                        <h4>Description</h4>
+                    </div>
+                    <div class="card-content">
+                        <p>{{gameDescription}}</p>
+                    </div>
+                </div> --}}
+                <div class="col s6">
+                    <div class="card">
+                        <div class="card-title blue lighten-2">
+                            Available Copies for Rental
+                        </div>
+                        <div class="card-content">
+                            <table>
+                                <tr>
+                                    <th>Owner</th>
+                                    <th>Rent Status</th>
+                                </tr>
+                                {{#each GameUnits}}
+                                {{> game-copy-block}}
+                                {{/each}}
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
