@@ -2,7 +2,11 @@
 
 ### Description
 
-This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences, and allowing them the access to email themselves ingredients required.
+During these uncertain times, my family like many others turned to board games and puzzles to fill the extra time we had at home. Over the year we bought a few new games, but with games averaging $30, we couldn’t buy them all.
+
+So, we created “The Game Board”.
+
+“The Game Board” is an online swap meet for board game lovers and families to register their list of games they have, browse other user’s games, and facilitate arranging swaps while also tracking lending.
 
 ---
 
