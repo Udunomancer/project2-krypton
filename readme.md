@@ -19,13 +19,13 @@ This app was designed to help busy people find recipes quickly while still being
 
 To properly use this website a three step starting process is used.
 
-Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
+Git Hub Repository: [https://github.com/ncastaldi/project2-krypton](https://github.com/ncastaldi/project2-krypton)
 
-![Repo Screenshot](./assets/images/repo-screenshot.png)
+![Repo Screenshot](./public/assets/imgs/repo-screenshot.png)
 
-Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.dev/project1/index.html)
+Live Site: [https://thegameboard.herokuapp.com/](#https://thegameboard.herokuapp.com/)
 
-![Site Screenshot](./assets/images/site-screenshot.png)
+![Site Screenshot](./public/assets/imgs/site-screenshot.png)
 
 ---
 
