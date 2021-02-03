@@ -51,14 +51,10 @@ Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.
 ---
 
 **Created By:**
-* Daniel Guadalupe ([GitHub](https://github.com/danielthomas129))
-* John Erler ([GitHub](https://github.com/jerler1))
-* Mya Todd ([GitHub](https://github.com/mt428376))
+* Kyle Chriscoe ([GitHub](https://github.com/Udunomancer))
+* Mugi Chultemsuren ([GitHub](https://github.com/mugich))
 * Nathan Castaldi ([GitHub](https://github.com/ncastaldi))
 
-**API's Used:**
-* [EmailJS](#https://www.emailjs.com/)
-* [Spoonacular](#https://spoonacular.com/)
 #### License
 ---
 
