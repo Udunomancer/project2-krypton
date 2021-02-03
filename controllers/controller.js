@@ -123,7 +123,7 @@ router.post("/api/game-description/new", (req, res) => {
 router.get("/games", (req, res) => {
   // db.User.findAll({}).then(function (data) {
     db.GameUnit.findAll({
-      include: [db.User],
+      include: [db.User, db.GameDescription],
     })
       .then(function (games) {
         hbsObject = {
@@ -132,6 +132,7 @@ router.get("/games", (req, res) => {
         for(let i = 0; i < games.length; i++) {
           tempObj = {};
           tempObj.id = games[i].id;
+          tempObj.title = games[i].GameDescription.gameTitle,
           tempObj.rented = games[i].rented;
           tempObj.userName = games[i].User.name;
           tempObj.userEmail = games[i].User.email;
