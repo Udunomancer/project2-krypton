@@ -117,14 +117,27 @@ router.post("/api/game-description/new", (req, res) => {
 // === API Routes ===
 // Route to render all trains to a page
 router.get("/games", (req, res) => {
-  db.User.findAll({}).then(function (data) {
+  // db.User.findAll({}).then(function (data) {
     db.GameUnit.findAll({
       include: [db.User],
     })
       .then(function (games) {
-        res.render("all-games", { gameunits: games, users: data });
+        hbsObject = {
+          gameunits: []
+        };
+        for(let i = 0; i < games.length; i++) {
+          tempObj = {};
+          tempObj.id = games[i].id;
+          tempObj.rented = games[i].rented;
+          tempObj.userName = games[i].User.name;
+          tempObj.userEmail = games[i].User.email;
+          hbsObject.gameunits.push(tempObj);
+        }
+        console.log(hbsObject);
+        res.render("all-games", hbsObject);
+        // res.render("all-games", { gameunits: games, users: data });
         // res.json(games);
-        console.log(games);
+        // console.log(games);
       })
       .catch((err) => {
         console.log(err);
@@ -132,7 +145,7 @@ router.get("/games", (req, res) => {
         res.status(500).end();
       });
   });
-});
+// });
 
 router.get("/games/:userId", (req, res) => {
   db.User.findAll({}).then(function (data) {
@@ -174,14 +187,14 @@ router.delete("/api/games/:id", (req, res) => {
 });
 
 router.put("/api/games/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
+  var condition = "id: " + req.params.id;
 
   db.GameUnit.update({
     rented: req.body.rented
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
+  }, {where: {
+    id: req.params.id
+  }}).then((response) => {
+    if (response.changedRows === 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
     } else {

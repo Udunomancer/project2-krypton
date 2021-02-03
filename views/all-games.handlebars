@@ -17,23 +17,28 @@
 
                     <p>{{id}}</p>
                     <ul>
-                        {{#User}}
-                        <li>{{name}}</li>
-                        <li>{{email}}</li>
-                        {{/User}}
+                        <li>{{userName}}</li>
+                        <li>{{userEmail}}</li>
+                        
                     </ul>
-                    
+                    {{!-- <div class="row">
+                        <p>Rental Status:</p>
+                        <button id="change-rent" data-id="{{id}}" data-newRent="{{rented}}">
+                            {{#unless rent}}RETURN{{else}}RENT{{/unless}}
+                        </button>
+                    </div> --}}
+                     
                      {{#unless rented}}
-                     {{> rent-block rent=false}}
-                      {{/unless}}
+                     {{> rent-block rent=true}}
+                     {{/unless}}
                      {{#if rented}}
-                    {{> rent-block rent=true}}
+                     {{> rent-block rent=false}}
                      {{/if}}
                 
 
                 </div>
                 <div class="card-action center-align">              
-                    <button class="btn waves-effect waves-light orange" id="delete-game" data-id="{{this.id}}">DELETE!</button>
+                    <button class="btn waves-effect waves-light orange" id="delete-game" data-id="{{id}}">DELETE!</button>
                 </div>
             </div>
         </div>
