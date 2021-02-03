@@ -154,8 +154,8 @@ router.get("/games", (req, res) => {
 router.post("/api/games/new", (req, res) => {
   db.GameUnit.create({
     rented: false,
-    GameDescriptionId: 2,
-    UserId: 2
+    GameDescriptionId: req.body.GameDescriptionId,
+    UserId: req.body.UserId
   }, {
     fields: ["rented", "GameDescriptionId", "UserId"]
   }).then((response) => {
