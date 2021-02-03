@@ -138,6 +138,18 @@ router.get("/games", (req, res) => {
   });
 });
 
+// router.post("api/games/new", (req, res) => {
+//   db.GameUnit.create({
+//     rented: false,
+//     GameDescriptionId: 2,
+//     UserId: 2
+//   }, {
+//     fields: ["rented", "GameDescriptionId", "UserId"]
+//   }).then((response) => {
+
+//   })
+// })
+
 router.get("/games/:userId", (req, res) => {
   db.User.findAll({}).then(function (data) {
     var query = {};
