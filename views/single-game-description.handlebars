@@ -5,7 +5,7 @@
         <div class="col s6">
             <div class="col s6">
                 <div class="card">
-                    <div class="card-title blue">
+                    <div class="card-title blue lighten-2">
                         {{game.gameTitle}}
                     </div>
                     <div class="card-content">
@@ -15,7 +15,7 @@
                         <p><strong>Published: </strong>{{game.published}}</p>
                     </div>
                     <div class="card-action">
-                        <button id="copy" class="btn modal-trigger" data-target="add-copy-modal">Add a Copy</button>
+                        <button id="copy" class="btn modal-trigger orange" data-target="add-copy-modal">Add a Copy</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn modal-close">Cancel</button>
+                        <button class="btn orange" id="submit">Add Copy</button>
+                        <button class="btn modal-close blue">Cancel</button>
                     </div>
                 </form>
             </div>
