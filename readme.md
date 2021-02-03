@@ -64,7 +64,7 @@ Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.
 
 MIT License
 
-Copyright (c) [2020] [Daniel Guadalupe, John Erler, Mya Todd, Nathan Castaldi]
+Copyright (c) [2020] [Kyle Chriscoe, Mugi Chultemsuren, and Nathan Castaldi]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
