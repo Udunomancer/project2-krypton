@@ -42,9 +42,9 @@ $(document).ready(function () {
       });
   };
 
-  $("#delete-game").on("click", function (event) {
-    var id = $(this).data("id");
-
+  $(".delete-game").on("click", function (event) {
+    const id = $(this).data("id");
+    
     // Send the DELETE request.
     $.ajax("/api/games/" + id, {
       type: "DELETE"
@@ -57,7 +57,7 @@ $(document).ready(function () {
     );
   });
 
-  $("#change-rent").on("click", function(event) {
+  $(".change-rent").on("click", function(event) {
     var id = $(this).data("id");
     
     var newRent = $(this).data("newrent");
