@@ -9,10 +9,15 @@
                         {{game.gameTitle}}
                     </div>
                     <div class="card-content">
+                        <div class="section">
                         <p><strong>{{game.gameDescription}}</strong></p>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="section">
                         <p><strong>Number of Players: </strong>{{game.minPlayers}}-{{game.maxPlayers}}</p>
                         <p><strong>Estimated Time to Play: </strong>{{game.minPlayTime}}-{{game.maxPlayTime}}</p>
                         <p><strong>Published: </strong>{{game.published}}</p>
+                        </div>
                     </div>
                     <div class="card-action">
                         <button id="copy" class="btn modal-trigger orange" data-target="add-copy-modal">Add a Copy</button>
