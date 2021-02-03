@@ -115,6 +115,10 @@ router.post("/api/game-description/new", (req, res) => {
     }, {
        fields: ["rented", "GameDescriptionId", "UserId"]
     })
+  }).then((banana) => {
+    res.status(200).end();
+  }).catch((err) => {
+    res.status(500).end();
   })
 });
 
