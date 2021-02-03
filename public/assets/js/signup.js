@@ -57,4 +57,27 @@ $(document).ready(function () {
     );
   });
 
+  $("#change-rent").on("click", function(event) {
+    var id = $(this).data("id");
+    
+    var newRent = $(this).data("newrent");
+    console.log($(this).data("newrent"))
+
+    var newRentState = {
+      rented: newRent
+    };
+   
+    // Send the PUT request.
+    $.ajax("/api/games/" + id, {
+      type: "PUT",
+      data: newRentState
+    }).then(
+      function() {
+        console.log("changed  to", newRent);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
 });
