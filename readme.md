@@ -1,22 +1,23 @@
 # Picky: the Recipe Finder
 
-#### Description 
----
+### Description
 
 This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences, and allowing them the access to email themselves ingredients required.
-#### Table of Contents
+
 ---
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-* [Badges](#badges)
+### Table of Contents
 
-#### Usage
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Badges](#badges)
+
 ---
+
+### Usage
+
 To properly use this website a three step starting process is used.
-
 
 Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
 
@@ -25,16 +26,20 @@ Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/
 Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.dev/project1/index.html)
 
 ![Site Screenshot](./assets/images/site-screenshot.png)
-#### Credits
+
 ---
+
+#### Credits
 
 **Created By:**
-* Kyle Chriscoe ([GitHub](https://github.com/Udunomancer))
-* Mugi Chultemsuren ([GitHub](https://github.com/mugich))
-* Nathan Castaldi ([GitHub](https://github.com/ncastaldi))
+
+- Kyle Chriscoe ([GitHub](https://github.com/Udunomancer))
+- Mugi Chultemsuren ([GitHub](https://github.com/mugich))
+- Nathan Castaldi ([GitHub](https://github.com/ncastaldi))
+
+---
 
 #### License
----
 
 MIT License
 
@@ -57,7 +62,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-## Badges
+
 ---
+
+## Badges
 
 [![GitHub license](https://img.shields.io/github/license/ncastaldi/project2-krypton?style=for-the-badge)](https://github.com/ncastaldi/project2-krypton/blob/main/LICENSE)
