@@ -6,13 +6,13 @@
             <div class="col s6">
                 <div class="card">
                     <div class="card-title blue">
-                        {{gameTitle}}
+                        {{game.gameTitle}}
                     </div>
                     <div class="card-content">
-                        <p><strong>{{gameDescription}}</strong></p>
-                        <p>Number of Players: {{minPlayers}}-{{maxPlayers}}</p>
-                        <p>Estimated Time to Play: {{minPlayTime}}-{{maxPlayTime}}</p>
-                        <p>Published: {{published}}</p>
+                        <p><strong>{{game.gameDescription}}</strong></p>
+                        <p><strong>Number of Players: </strong>{{game.minPlayers}}-{{game.maxPlayers}}</p>
+                        <p><strong>Estimated Time to Play: </strong>{{game.minPlayTime}}-{{game.maxPlayTime}}</p>
+                        <p><strong>Published: </strong>{{game.published}}</p>
                     </div>
                     <div class="card-action">
                         <button id="copy" class="btn modal-trigger" data-target="add-copy-modal">Add a Copy</button>
