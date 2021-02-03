@@ -21,7 +21,7 @@ $(document).ready(function() {
         });
     }
 
-    addCopyFormEl.on("submit", addNewCopy);
+    submitEl.on("click", addNewCopy);
     // $('#copy').on("click", function (event) {
     //     $.ajax("/api/user", {
     //         type: "GET"

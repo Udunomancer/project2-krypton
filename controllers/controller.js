@@ -115,6 +115,10 @@ router.post("/api/game-description/new", (req, res) => {
     }, {
        fields: ["rented", "GameDescriptionId", "UserId"]
     })
+  }).then((banana) => {
+    res.status(200).end();
+  }).catch((err) => {
+    res.status(500).end();
   })
 });
 
@@ -123,7 +127,7 @@ router.post("/api/game-description/new", (req, res) => {
 router.get("/games", (req, res) => {
   // db.User.findAll({}).then(function (data) {
     db.GameUnit.findAll({
-      include: [db.User],
+      include: [db.User, db.GameDescription],
     })
       .then(function (games) {
         hbsObject = {
@@ -132,6 +136,7 @@ router.get("/games", (req, res) => {
         for(let i = 0; i < games.length; i++) {
           tempObj = {};
           tempObj.id = games[i].id;
+          tempObj.title = games[i].GameDescription.gameTitle,
           tempObj.rented = games[i].rented;
           tempObj.userName = games[i].User.name;
           tempObj.userEmail = games[i].User.email;
@@ -154,8 +159,8 @@ router.get("/games", (req, res) => {
 router.post("/api/games/new", (req, res) => {
   db.GameUnit.create({
     rented: false,
-    GameDescriptionId: 2,
-    UserId: 2
+    GameDescriptionId: req.body.GameDescriptionId,
+    UserId: req.body.UserId
   }, {
     fields: ["rented", "GameDescriptionId", "UserId"]
   }).then((response) => {

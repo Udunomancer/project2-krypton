@@ -27,6 +27,6 @@ $(".submitButton").on("click", function (e) {
             gameDescription: $("#gameDescription").val(),
         }
     }).then((response) => {
-        console.log(response);
+        window.location.href = "/";
     })
 })

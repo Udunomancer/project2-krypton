@@ -2,10 +2,10 @@
 <div class=" container">
     <div class="card row">
         <div class="row">
-        <h3 class="center-align">All Games</h3>
+        <h3 class="center-align">All Available Rentals</h3>
 
     
- {{> users-dropdown}}   
+ {{!-- {{> users-dropdown}}    --}}
 </div>
         <div class="col m10">
         {{#each gameunits}}
@@ -13,12 +13,11 @@
         <div class="col s5 m3">
             <div class="card small blue-grey darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title"></span>
+                    <span class="card-title">{{title}}</span>
 
-                    <p>{{id}}</p>
                     <ul>
-                        <li>{{userName}}</li>
-                        <li>{{userEmail}}</li>
+                        <li><strong>Owner: </strong>{{userName}}</li>
+                        <li><strong>Owner Email: </strong>{{userEmail}}</li>
                         
                     </ul>
                     {{!-- <div class="row">
@@ -38,7 +37,7 @@
 
                 </div>
                 <div class="card-action center-align">              
-                    <button class="btn waves-effect waves-light orange" id="delete-game" data-id="{{id}}">DELETE!</button>
+                    <button class="btn waves-effect waves-light orange delete-game" data-id="{{id}}">DELETE!</button>
                 </div>
             </div>
         </div>
