@@ -1,38 +1,74 @@
 {{> header-block}}
-<main>
-    <div class="container">
-        <div class="section">
-            <div class="card">
-                <div class="card-title blue">
-                    {{gameTitle}}
-                </div>
-                <div class="card-content">
-                    <p><strong>{{gameDescription}}</strong></p>
-                    <p>Number of Players: {{minPlayers}}-{{maxPlayers}}</p>
-                    <p>Estimated Time to Play: {{minPlayTime}}-{{maxPlayTime}}</p>
-                    <p>Published: {{published}}</p>
-                </div>
-                <div class="card-action">
-                    <button class="btn">Add a Copy</button>
+<main class="row">
+    {{!-- <div class="row"> --}}
+        <div class="col s3"></div>
+        <div class="col s6">
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-title blue lighten-2">
+                        {{game.gameTitle}}
+                    </div>
+                    <div class="card-content">
+                        <p><strong>{{game.gameDescription}}</strong></p>
+                        <p><strong>Number of Players: </strong>{{game.minPlayers}}-{{game.maxPlayers}}</p>
+                        <p><strong>Estimated Time to Play: </strong>{{game.minPlayTime}}-{{game.maxPlayTime}}</p>
+                        <p><strong>Published: </strong>{{game.published}}</p>
+                    </div>
+                    <div class="card-action">
+                        <button id="copy" class="btn modal-trigger orange" data-target="add-copy-modal">Add a Copy</button>
+                    </div>
                 </div>
             </div>
-            {{!-- <div class="card">
-                <div class="card-title">
-                    <h4>Description</h4>
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-title blue lighten-2">
+                        Available Copies for Rental
+                    </div>
+                    <div class="card-content">
+                        <table>
+                            <tr>
+                                <th>Owner</th>
+                                <th>Rent Status</th>
+                            </tr>
+                            {{#each game.GameUnits}}
+                            {{> game-copy-block}}
+                            {{/each}}
+                        </table>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p>{{gameDescription}}</p>
-                </div>
-            </div> --}}
-            <div class="card blue lighten-2">
-                <div class="card-content">
-                    <ul>
-                        <li>Rent Game 1</li>
-                        <li>Rent Game 2</li>
-                        <li>Rent Game 3</li>
-                    </ul>
-                </div>
+            </div>
+            <div id="add-copy-modal" class="modal bottom-sheet">
+                <form id="add-copy-form">
+                    <div class="modal-content">
+                        <h4>Select a User</h4>
+                        <div class="input-field col s6">
+                            <select id="ownerDropdown">
+                                <option value="" selected>Make Selection</option>
+                                {{#each users}}
+                                {{> owner-block}}
+                                {{/each}}
+                            </select>
+                            <label>Select Game Owner</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn orange" id="submit" data-value={{game.id}}>Add Copy</button>
+                        <button class="btn modal-close blue">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
+        <div class="col s3"></div>
+
+        {{!-- <div class="card">
+            <div class="card-title">
+                <h4>Description</h4>
+            </div>
+            <div class="card-content">
+                <p>{{gameDescription}}</p>
+            </div>
+        </div> --}}
+
+        {{!--
+    </div> --}}
 </main>
