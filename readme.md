@@ -1,4 +1,4 @@
-# Picky: the Recipe Finder
+# The Game Board
 
 ### Description
 
