@@ -8,8 +8,17 @@ $(document).ready(function() {
 
     function addNewCopy(event) {
         event.preventDefault();
-        console.log(ownerValueEl.val());
-        console.log(submitEl.attr("data-value"));
+
+        $.ajax({
+            type: "POST",
+            url: "/api/games/new",
+            data: {
+                GameDescriptionId: submitEl.attr("data-value"),
+                UserId: ownerValueEl.val()
+            }
+        }).then((response) => {
+            window.location.href = "/games";
+        });
     }
 
     addCopyFormEl.on("submit", addNewCopy);

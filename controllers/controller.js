@@ -138,17 +138,20 @@ router.get("/games", (req, res) => {
   });
 });
 
-// router.post("api/games/new", (req, res) => {
-//   db.GameUnit.create({
-//     rented: false,
-//     GameDescriptionId: 2,
-//     UserId: 2
-//   }, {
-//     fields: ["rented", "GameDescriptionId", "UserId"]
-//   }).then((response) => {
-
-//   })
-// })
+router.post("/api/games/new", (req, res) => {
+  db.GameUnit.create({
+    rented: false,
+    GameDescriptionId: 2,
+    UserId: 2
+  }, {
+    fields: ["rented", "GameDescriptionId", "UserId"]
+  }).then((response) => {
+    console.log("End of server route")
+    res.status(200).end();
+  }).catch((err) => {
+    res.status(500).end();
+  })
+})
 
 router.get("/games/:userId", (req, res) => {
   db.User.findAll({}).then(function (data) {
